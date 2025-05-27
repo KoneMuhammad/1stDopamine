@@ -5,16 +5,18 @@ import com.example.taskamazing.domainmodel.ModelTask
 
 fun Task.toDomain(): ModelTask{
     return ModelTask(
-        taskId = this.taskId,
+        id = this.id,
         createdAt = this.createdAt,
-        task = this.task
+        typeOfTask = this.typeOfTask,
+        taskMessage = this.taskMessage
     )
 }
 
 fun ModelTask.toEntity(): Task{
     return Task(
-        taskId = this.taskId,
+        id = this.id,
         createdAt = this.createdAt,
-        task = this.task
+        typeOfTask = this.typeOfTask,
+        taskMessage = this.taskMessage
     )
 }

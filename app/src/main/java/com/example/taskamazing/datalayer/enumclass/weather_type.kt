@@ -1,6 +1,6 @@
 package com.example.taskamazing.datalayer.enumclass
 
-enum class Environment {
+enum class weather_type {
     URBANENVIRONMENT,
     POLARENVIRONMENT,
     COASTALENVIRONMENT,
