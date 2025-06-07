@@ -1,6 +1,6 @@
-package com.example.taskamazing.datalayer.domainmodel
+package com.example.taskamazing.datalayer.apiservice
 
-data class Current(
+data class CurrentWeather(
     val last_updated: String,
     val last_updated_epoch: Int,
     val temp_c: Double,
