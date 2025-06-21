@@ -1,8 +1,7 @@
-package com.example.taskamazing.di
+package com.example.taskamazing
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
-
 @HiltAndroidApp
-class DependancyInjection: Application()
+class MyApp : Application()
