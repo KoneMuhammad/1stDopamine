@@ -1,18 +1,20 @@
 package com.example.taskamazing.datalayer.mapper
 
 import com.example.taskamazing.datalayer.dto.DTOTaskWeatherBackground
-import com.example.taskamazing.datalayer.dto.ModelDTOTaskImageBackground
+import com.example.taskamazing.datalayer.dto.ModelDTOTaskWeatherBackground
 
-fun DTOTaskWeatherBackground.toDomain(): ModelDTOTaskImageBackground {
-    return  ModelDTOTaskImageBackground(
-        taskImageId = this.taskImageId,
-        background = this.background
+fun DTOTaskWeatherBackground.toDomain(): ModelDTOTaskWeatherBackground {
+    return  ModelDTOTaskWeatherBackground(
+        id = this.id,
+        weather_type = this.weather_type,
+        video_url = this.video_url
     )
 }
 
-fun ModelDTOTaskImageBackground.toEntity(): DTOTaskWeatherBackground{
+fun ModelDTOTaskWeatherBackground.toEntity(): DTOTaskWeatherBackground{
     return DTOTaskWeatherBackground(
-        taskImageId = this.taskImageId,
-        background = this.background
+        id = this.id,
+        weather_type = this.weather_type,
+        video_url = this.video_url
     )
 }

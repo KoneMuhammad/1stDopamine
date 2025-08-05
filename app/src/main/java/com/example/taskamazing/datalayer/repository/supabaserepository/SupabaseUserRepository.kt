@@ -1,34 +1,21 @@
-package com.example.taskamazing.datalayer.repository.onlinerepository
+package com.example.taskamazing.datalayer.repository.supabaserepository
 
 import com.example.taskamazing.datalayer.repository.RepositoryUser
 import com.example.taskamazing.datalayer.domainmodel.ModelUser
-import io.github.jan.supabase.SupabaseClient
-import io.github.jan.supabase.auth.auth
-import io.github.jan.supabase.auth.providers.builtin.Email
-import io.github.jan.supabase.postgrest.from
+import com.example.taskamazing.datalayer.repository.supabaserepository.wrappersupabase.WrapperUserSupabase
 import javax.inject.Inject
 
-class SupabaseUserRepository@Inject constructor(private val client: SupabaseClient): RepositoryUser {
+class SupabaseUserRepository@Inject constructor(private val wrapper:WrapperUserSupabase ): RepositoryUser {
     override suspend fun addNewUser(email: String, password: String) {
-      val response =  client.auth.signUpWith(Email){
-           this.email = email
-           this.password = password
-       }
-
+        val addUser = wrapper.addNewUser(email,password)
     }
 
     override suspend fun upsertNewUser(user: ModelUser) {
-        val response = client
-            .from("User")
-            .upsert(user)
+       val upsertNewUser = wrapper.upsertNewUser(user)
     }
 
     override suspend fun deleteUser(id: Long) {
-        val response = client
-            .from("User")
-            .delete{
-                filter { ModelUser::id  eq id }
-            }
-
+       val removeUserColumn = wrapper.deleteUser(id)
     }
+
 }

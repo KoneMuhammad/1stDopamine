@@ -1,4 +1,4 @@
-package com.example.taskamazing.domainmodel
+package com.example.taskamazing.datalayer.domainmodel
 
 import com.example.taskamazing.datalayer.enumclass.weather_type
 import java.time.Instant

@@ -3,7 +3,7 @@ package com.example.taskamazing.datalayer.typeconverter
 import androidx.room.TypeConverter
 import com.example.taskamazing.datalayer.enumclass.weather_type
 
-class ConverterEnvironment {
+class ConverterWeatherType {
 
     @TypeConverter
     fun toEnvironment(value: String): weather_type {

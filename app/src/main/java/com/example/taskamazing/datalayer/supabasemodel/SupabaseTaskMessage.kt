@@ -1,11 +1,12 @@
 package com.example.taskamazing.datalayer.supabasemodel
-
-import com.example.taskamazing.datalayer.enumclass.TypeOfTask
+import androidx.compose.runtime.Composable
+import com.example.taskamazing.datalayer.enumclass.type_of_task
 import java.time.Instant
 
-data class SupabaseTask(
+data class SupabaseTaskMessage(
     val id: Long,
-    val createdAt: Instant,
-    val typeOfTask: TypeOfTask,
-    val taskMessage: String
+    val created_at: Instant,
+    val type_of_task: type_of_task,
+    val task_message: String,
+    val emblem_url: String
 )

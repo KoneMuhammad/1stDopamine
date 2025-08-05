@@ -3,20 +3,24 @@ package com.example.taskamazing.datalayer.dao
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
+import com.example.taskamazing.datalayer.dto.DTOTaskMessage
 import com.example.taskamazing.datalayer.entity.TaskMessage
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface DaoTask {
+interface DaoTaskMessage {
 
     @Upsert
-    fun upsertTasks(task: TaskMessage)
+   suspend fun upsertTaskMessage(taskMessage: TaskMessage)
 
-    @Query("SELECT * FROM TaskMessage WHERE id = :id")
-    fun getTask(id:Long): Flow<TaskMessage>
+    @Query("SELECT id, type_of_task, task_message,emblem_url FROM TaskMessage where id = :id")
+    fun getTaskMessage(id:Long): Flow<DTOTaskMessage>
 
-    @Query("SELECT * FROM TaskMessage WHERE id = :ids")
-    fun getMultipleTasks(ids: Set<Long>): Flow<List<TaskMessage>>
+    @Query("SELECT id, type_of_task, task_message,emblem_url FROM TaskMessage where id IN (:ids)")
+    fun getMultipleTaskMessage(ids: Set<Long>): Flow<List<DTOTaskMessage>>
 
-    @Query("SELECT type_of_task, task_message,emblem_url FROM TaskMessage where id = :id")
+
 }
+
+
+

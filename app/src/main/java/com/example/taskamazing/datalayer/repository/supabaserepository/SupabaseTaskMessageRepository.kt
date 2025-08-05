@@ -1,43 +1,25 @@
-package com.example.taskamazing.datalayer.repository.onlinerepository
+package com.example.taskamazing.datalayer.repository.supabaserepository
 
 import com.example.taskamazing.datalayer.dto.ModelDTOTaskMessage
-import com.example.taskamazing.datalayer.entity.TaskMessage
 import com.example.taskamazing.datalayer.repository.RepositoryTaskMessage
 import com.example.taskamazing.datalayer.domainmodel.ModelTaskMessage
-import io.github.jan.supabase.SupabaseClient
-import io.github.jan.supabase.postgrest.from
-import io.github.jan.supabase.postgrest.query.Columns
+import com.example.taskamazing.datalayer.repository.supabaserepository.wrappersupabase.WrapperMessageSupabase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class SupabaseTaskMessageRepository@Inject constructor(private val client: SupabaseClient): RepositoryTaskMessage {
+class SupabaseTaskMessageRepository@Inject constructor(private val wrapper: WrapperMessageSupabase): RepositoryTaskMessage {
     override suspend fun upsertTaskMessage(taskMessage: ModelTaskMessage) {
+        TODO("Not yet implemented")
     }
 
-    override fun getTaskMessage(id: Long): Flow<ModelDTOTaskMessage> = flow {
-        val response = client
-            .from("TaskMessage")
-            .select(columns = Columns.list("type_of_task, task_message, emblem_url")){
-                filter{ ModelTaskMessage::id eq id}
-            }
-            .decodeSingle<ModelDTOTaskMessage>()
-        emit(response)
+    override fun getTaskMessage(id: Long): Flow<ModelDTOTaskMessage> = flow{
+
+        val singleMessage = wrapper.getTaskMessage(id)
     }
 
-    override fun getMultipleTaskMessage(ids: Set<Long>): Flow<List<ModelDTOTaskMessage>> = flow {
-        if (ids.isEmpty()) {
-            emit(emptyList())
-            return@flow
-        }
-        val response = client
-            .from("TaskMessage")
-            .select(columns = Columns.list("type_of_task, task_message, emblem_url")){
-                        filter { ModelTaskMessage::id isIn ids.toList() }
-            }
+    override fun getMultipleTaskMessage(ids: Set<Long>): Flow<List<ModelDTOTaskMessage>> = flow{
 
-            .decodeList<ModelDTOTaskMessage>()
-        emit(response)
+        val mutlipleMessages = wrapper.getMultipleTaskMessage(ids)
     }
-
 }

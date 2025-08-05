@@ -1,16 +1,14 @@
 package com.example.taskamazing.datalayer.repository
 
-import com.example.taskamazing.domainmodel.ModelTaskMessage
+import com.example.taskamazing.datalayer.dto.ModelDTOTaskMessage
+import com.example.taskamazing.datalayer.domainmodel.ModelTaskMessage
 import kotlinx.coroutines.flow.Flow
 
-interface RepositoryTask {
+interface RepositoryTaskMessage {
 
-    suspend fun upsertTasks(task: ModelTaskMessage)
-    fun getTask(taskId:Long): Flow<ModelTaskMessage>
-    fun getMultipleTasks(taskIds: Set<Long>): Flow<List<ModelTaskMessage>>
+    suspend fun upsertTaskMessage(taskMessage: ModelTaskMessage)
+    fun getTaskMessage(id:Long): Flow<ModelDTOTaskMessage>
+    fun getMultipleTaskMessage(ids: Set<Long>): Flow<List<ModelDTOTaskMessage>>
+
 
 }
-//repo 2 offline and supabase
-//so repository is just for doing operations weather or not thats offline
-//or through a cloud
-//offline repository then online one

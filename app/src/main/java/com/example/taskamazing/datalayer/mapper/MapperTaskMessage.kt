@@ -1,22 +1,24 @@
 package com.example.taskamazing.datalayer.mapper
 
-import com.example.taskamazing.datalayer.entity.Task
-import com.example.taskamazing.domainmodel.ModelTask
+import com.example.taskamazing.datalayer.entity.TaskMessage
+import com.example.taskamazing.datalayer.domainmodel.ModelTaskMessage
 
-fun Task.toDomain(): ModelTask{
-    return ModelTask(
+fun TaskMessage.toDomain(): ModelTaskMessage {
+    return ModelTaskMessage(
         id = this.id,
-        createdAt = this.createdAt,
-        typeOfTask = this.typeOfTask,
-        taskMessage = this.taskMessage
+        created_at = this.created_at,
+        type_of_task = this.type_of_task,
+        task_message = this.task_message,
+        emblem_url = this.emblem_url
     )
 }
 
-fun ModelTask.toEntity(): Task{
-    return Task(
+fun ModelTaskMessage.toEntity(): TaskMessage{
+    return TaskMessage(
         id = this.id,
-        createdAt = this.createdAt,
-        typeOfTask = this.typeOfTask,
-        taskMessage = this.taskMessage
+        created_at = this.created_at,
+        type_of_task = this.type_of_task,
+        task_message = this.task_message,
+        emblem_url = this.emblem_url
     )
 }

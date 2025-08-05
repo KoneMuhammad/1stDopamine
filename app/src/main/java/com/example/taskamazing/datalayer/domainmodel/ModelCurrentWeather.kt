@@ -1,37 +1,109 @@
-package com.example.taskamazing.datalayer.apiservice
+package com.example.taskamazing.datalayer.domainmodel
 
-data class CurrentWeather(
-    val last_updated: String,
-    val last_updated_epoch: Int,
-    val temp_c: Double,
-    val temp_f: Double,
-    val feelslike_c: Double,
-    val feelslike_f: Double,
-    val windchill_c: Double,
-    val windchill_f: Double,
-    val heatindex_c: Double,
-    val heatindex_f: Double,
-    val dewpoint_c: Double,
-    val dewpoint_f: Double,
-    val condition: Condition,
-    val wind_mph: Double,
-    val wind_kph: Double,
-    val wind_degree: Int,
-    val wind_dir: String,
-    val pressure_mb: Double,
-    val pressure_in: Double,
-    val precip_mm: Double,
-    val precip_in: Double,
-    val humidity: Int,
-    val cloud: Int,
-    val is_day: Int,
-    val uv: Double,
-    val gust_mph: Double,
-    val gust_kph: Double
+import com.google.gson.annotations.SerializedName
+
+data class WeatherApiResponse(
+    val lat: Double,
+    val lon: Double,
+    val timezone: String,
+    val timezone_offset: Int,
+    val current: Current,
+    val minutely: List<Minutely>,
+    val hourly: List<Hourly>,
+    val daily: List<Daily>,
+    val alerts: List<Alert>?
 )
 
-data class Condition(
-    val text: String,
-    val icon: String,
-    val code: Int
+data class Current(
+    val dt: Long,
+    val sunrise: Long,
+    val sunset: Long,
+    val temp: Double,
+    val feels_like: Double,
+    val pressure: Int,
+    val humidity: Int,
+    val dew_point: Double,
+    val uvi: Double,
+    val clouds: Int,
+    val visibility: Int,
+    val wind_speed: Double,
+    val wind_deg: Int,
+    val wind_gust: Double?,
+    val weather: List<WeatherDescription>
+)
+
+data class WeatherDescription(
+    val id: Int,
+    val main: String,
+    val description: String,
+    val icon: String
+)
+
+data class Minutely(
+    val dt: Long,
+    val precipitation: Double
+)
+
+data class Hourly(
+    val dt: Long,
+    val temp: Double,
+    val feels_like: Double,
+    val pressure: Int,
+    val humidity: Int,
+    val dew_point: Double,
+    val uvi: Double,
+    val clouds: Int,
+    val visibility: Int,
+    val wind_speed: Double,
+    val wind_deg: Int,
+    val wind_gust: Double?,
+    val weather: List<WeatherDescription>,
+    val pop: Double
+)
+
+data class Daily(
+    val dt: Long,
+    val sunrise: Long,
+    val sunset: Long,
+    val moonrise: Long,
+    val moonset: Long,
+    val moon_phase: Double,
+    val summary: String?,
+    val temp: Temp,
+    val feels_like: FeelsLike,
+    val pressure: Int,
+    val humidity: Int,
+    val dew_point: Double,
+    val wind_speed: Double,
+    val wind_deg: Int,
+    val wind_gust: Double?,
+    val weather: List<WeatherDescription>,
+    val clouds: Int,
+    val pop: Double,
+    val rain: Double?,
+    val uvi: Double
+)
+
+data class Temp(
+    val day: Double,
+    val min: Double,
+    val max: Double,
+    val night: Double,
+    val eve: Double,
+    val morn: Double
+)
+
+data class FeelsLike(
+    val day: Double,
+    val night: Double,
+    val eve: Double,
+    val morn: Double
+)
+
+data class Alert(
+    val sender_name: String,
+    val event: String,
+    val start: Long,
+    val end: Long,
+    val description: String,
 )

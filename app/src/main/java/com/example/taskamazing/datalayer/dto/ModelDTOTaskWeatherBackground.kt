@@ -1,9 +1,9 @@
 package com.example.taskamazing.datalayer.dto
 
-import androidx.room.ColumnInfo
+import com.example.taskamazing.datalayer.enumclass.weather_type
 
-data class ModelDTOTaskImageBackground(
-   @ColumnInfo(name = "id") val id: Long,
-   @ColumnInfo(name = "video_url") val video_url: String,
-   @ColumnInfo(name = "weather_type") val weather_type:String
+data class ModelDTOTaskWeatherBackground(
+    val id: Long,
+    val weather_type: weather_type,
+    val video_url:String
 )

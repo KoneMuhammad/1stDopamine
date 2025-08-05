@@ -11,7 +11,7 @@ interface DaoUser {
     @Upsert
     suspend fun upsertNewUser(user: User)
 
-    @Query("DELETE FROM User WHERE userId = :userId")
-    suspend fun deleteUser(userId: Long)
+    @Query("DELETE FROM User WHERE id = :id")
+    suspend fun deleteUser(id: Long)
 
 }

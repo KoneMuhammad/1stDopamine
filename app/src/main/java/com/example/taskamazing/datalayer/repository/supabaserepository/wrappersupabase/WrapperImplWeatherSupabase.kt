@@ -1,31 +1,42 @@
-package com.example.taskamazing.datalayer.supabasemodel
+package com.example.taskamazing.datalayer.repository.supabaserepository.wrappersupabase
+
+import com.example.taskamazing.datalayer.domainmodel.ModelTaskWeather
+import com.example.taskamazing.datalayer.dto.ModelDTOTaskWeatherBackground
+import com.example.taskamazing.datalayer.enumclass.weather_type
+import io.github.jan.supabase.SupabaseClient
+import io.github.jan.supabase.postgrest.from
+import io.github.jan.supabase.postgrest.query.Columns
 
 class WrapperImplWeatherSupabase(
     private val client: SupabaseClient
-): SupabaseReturner {
+): WrapperWeatherSupabase {
+    override suspend fun upsertTaskImage(taskWeather: ModelTaskWeather) {
+    }
+// either flow or no match data or no get data
 
-    override fun getTaskMessage(id: Long): Flow<ModelDTOTaskMessage> = flow {
-        val response = client
-            .from("TaskMessage")
-            .select(columns = Columns.list("type_of_task, task_message, emblem_url")){
-                filter{ ModelTaskMessage::id eq id}
-            }
-            .decodeSingle<ModelDTOTaskMessage>()
-        emit(response)
+    //practice understanding supabase filter s
+    override suspend fun getTaskWeather(weatherType: weather_type): ModelDTOTaskWeatherBackground {
+        return client
+            .from("TaskWeather")
+            .select(columns = Columns.list("id, weather_type,video_url")){
+                filter { ModelTaskWeather::weather_type eq weatherType.name}
+            }//get entire class
+            .decodeSingle<ModelDTOTaskWeatherBackground>()
+// one time suspend function
     }
 
-    override fun getMultipleTaskMessage(ids: Set<Long>): Flow<List<ModelDTOTaskMessage>> = flow {
-        if (ids.isEmpty()) {
-            emit(emptyList())
-            return@flow
-        }
-        val response = client
-            .from("TaskMessage")
-            .select(columns = Columns.list("type_of_task, task_message, emblem_url")){
-                filter { ModelTaskMessage::id isIn ids.toList() }
+    override suspend fun getMultipleTaskWeather(weatherType: Set<weather_type>): List<ModelDTOTaskWeatherBackground> {
+        return client
+            .from("TaskWeather")
+            .select(columns = Columns.list("id, weather_type,video_url")){
+                filter { ModelTaskWeather::weather_type isIn weatherType.toList() }
             }
 
-            .decodeList<ModelDTOTaskMessage>()
-        emit(response)
+            .decodeList<ModelDTOTaskWeatherBackground>()
     }
 }
+
+
+// whats the current state
+//whats function returning
+//whats function variabels

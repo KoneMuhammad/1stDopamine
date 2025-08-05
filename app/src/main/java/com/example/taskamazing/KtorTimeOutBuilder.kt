@@ -1,4 +1,4 @@
-package com.example.taskamazing.uilayer.viewmodel
+package com.example.taskamazing
 import io.ktor.client.*
 import io.ktor.client.engine.cio.*
 import io.ktor.client.plugins.*

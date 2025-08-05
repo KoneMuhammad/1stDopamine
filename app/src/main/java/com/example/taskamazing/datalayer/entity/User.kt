@@ -6,8 +6,8 @@ import java.time.Instant
 
 @Entity
 data class User(
-    @PrimaryKey val userId: String,
-    val createdAt: Instant,
+    @PrimaryKey val id: Long,
+    val created_at: Instant,
     val email: String,
-    val displayName: String
+    val display_name: String
 )

@@ -1,13 +1,13 @@
 package com.example.taskamazing.datalayer.enumclass
 
-enum class TypeOfTask {
-MONEY,
-    FAMILY,
-    FEED,
-    DHIKR,
-    SHARINGKNOWLEDGE,
-    SELFCARE,
-    KINDNESS,
+enum class type_of_task {
+MONEY,//https://mgstcpzcjdoxpcbsgfgv.supabase.co/storage/v1/object/sign/typeoftask/Money.lottie?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kMzdlMTBiMy04NjhlLTQyYjktODdhZi1lNDQ3ZTI3YjMxZTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0eXBlb2Z0YXNrL01vbmV5LmxvdHRpZSIsImlhdCI6MTc1MTgzMzg2MSwiZXhwIjoyMDY3MTkzODYxfQ.-COJ19cmZnWn4efpa_QST9hoznDqsPmkHOuTZ2OaKWo
+    FAMILY,//https://mgstcpzcjdoxpcbsgfgv.supabase.co/storage/v1/object/sign/typeoftask/Family.lottie?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kMzdlMTBiMy04NjhlLTQyYjktODdhZi1lNDQ3ZTI3YjMxZTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0eXBlb2Z0YXNrL0ZhbWlseS5sb3R0aWUiLCJpYXQiOjE3NTE4MzM5MzAsImV4cCI6MjA2NzE5MzkzMH0.3vgGPaoLYvhx6VWYnjDpKEEPGDkkgJc707AZurv3MFk
+    FEED,//https://mgstcpzcjdoxpcbsgfgv.supabase.co/storage/v1/object/sign/typeoftask/Feed.lottie?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kMzdlMTBiMy04NjhlLTQyYjktODdhZi1lNDQ3ZTI3YjMxZTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0eXBlb2Z0YXNrL0ZlZWQubG90dGllIiwiaWF0IjoxNzUxODM0NjkyLCJleHAiOjIwNjcxOTQ2OTJ9.QNy4ZDu_MiO557ml5R8jWvwdx8KMbtZAl7hJGX-vGyc
+    DHIKR,//
+    SHARINGKNOWLEDGE,//https://mgstcpzcjdoxpcbsgfgv.supabase.co/storage/v1/object/sign/typeoftask/SharingKnowledge.lottie?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kMzdlMTBiMy04NjhlLTQyYjktODdhZi1lNDQ3ZTI3YjMxZTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0eXBlb2Z0YXNrL1NoYXJpbmdLbm93bGVkZ2UubG90dGllIiwiaWF0IjoxNzUxODM5MDQ1LCJleHAiOjIwNjcxOTkwNDV9.ypVWhVqOeGPqhWWXfc4l44isMN3Qp8O5raaPdB3Ox4Q
+    SELFCARE,//https://mgstcpzcjdoxpcbsgfgv.supabase.co/storage/v1/object/sign/typeoftask/SelfCare.lottie?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kMzdlMTBiMy04NjhlLTQyYjktODdhZi1lNDQ3ZTI3YjMxZTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0eXBlb2Z0YXNrL1NlbGZDYXJlLmxvdHRpZSIsImlhdCI6MTc1MTgzOTA4MiwiZXhwIjoyMDY3MTk5MDgyfQ.hbMFZbPl-Yz3HB7Db6imkKDUXJNkl1-fANI10llrl7Q
+    KINDNESS,//https://mgstcpzcjdoxpcbsgfgv.supabase.co/storage/v1/object/sign/typeoftask/Kindness.lottie?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kMzdlMTBiMy04NjhlLTQyYjktODdhZi1lNDQ3ZTI3YjMxZTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ0eXBlb2Z0YXNrL0tpbmRuZXNzLmxvdHRpZSIsImlhdCI6MTc1MTgzOTEwOSwiZXhwIjoyMDY3MTk5MTA5fQ.KoD6RmF1pUMGx5Ty4o1dl2sSh2hSpJxKE7Nwr3tJq3M
 
 
 

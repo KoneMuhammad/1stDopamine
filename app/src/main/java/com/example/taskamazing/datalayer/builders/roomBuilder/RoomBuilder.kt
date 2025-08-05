@@ -1,4 +1,4 @@
-package com.example.taskamazing.datalayer.roombuilder
+package com.example.taskamazing.datalayer.builders.roomBuilder
 
 import android.content.Context
 import androidx.room.Room
